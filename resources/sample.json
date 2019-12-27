@@ -1,0 +1,23 @@
+{
+	"id": "https://www.semanticscholar.org/paper/Processing-Data-Where-It-Makes-Sense%3A-Enabling-Mutlu-Ghose/4f17bd15a6f86730ac2207167ccf36ec9e6c2391",
+	"title": "Processing Data Where It Makes Sense: Enabling In-Memory Computation",
+	"abstract": "Today’s systems are overwhelmingly designed to move data to computation. This design choice goes directly against at least three key trends in systems that cause performance, scalability and energy bottlenecks: (1) data access from memory is already a key bottleneck as applications become more data-intensive and memory bandwidth and energy do not scale well, (2) energy consumption is a key constraint in especially mobile and server systems, (3) data movement is very expensive in terms of bandwidth, energy and latency, much more so than computation. These trends are especially severely-felt in the data-intensive server and energy-constrained mobile systems of today. At the same time, conventional memory technology is facing many scaling challenges in terms of reliability, energy, and performance. As a result, memory system architects are open to organizing memory in different ways and making it more intelligent, at the expense of higher cost. The emergence of 3D-stacked memory plus logic as well as the adoption of error correcting codes inside DRAM chips, and the necessity for designing new solutions to serious reliability and security issues, such as the RowHammer phenomenon, are an evidence of this trend. In this work, we discuss some recent research that aims to practically enable computation close to data. After motivating trends in applications as well as technology, we discuss at least two promising directions for processing-in-memory (PIM): (1) performing massively-parallel bulk operations in memory by exploiting the analog operational properties of DRAM, with low-cost changes, (2) exploiting the logic layer in 3D-stacked memory technology to accelerate important data-intensive applications. In both approaches, we describe and tackle relevant cross-layer research, design, and adoption challenges in devices, architecture, systems, and programming models. Our focus is on the development of in-memory processing designs that can be adopted in real computing platforms at low cost.",
+	"date": "2019",
+	"authors": [
+		"Onur Mutlu",
+		"Saugata Ghose",
+		"Juan Gómez-Luna",
+		"Rachata Ausavarungnirun"
+	],
+	"references": [
+		"https://www.semanticscholar.org/paper/A-scalable-processing-in-memory-accelerator-for-Ahn-Hong/4bd669b70ec1d1fa2d7825bdf7a17ae7c80f4480",
+		"https://www.semanticscholar.org/paper/RowClone%3A-Fast-and-energy-efficient-in-DRAM-bulk-Seshadri-Kim/8f8f2b1beaa33be4f7ed14a5884c2333bcccf640",
+		"https://www.semanticscholar.org/paper/Google-Workloads-for-Consumer-Devices%3A-Mitigating-Boroumand-Ghose/869ffc81aad12cc59e87ed658ea6489849543fad",
+		"https://www.semanticscholar.org/paper/Concurrent-Data-Structures-for-Near-Memory-Liu-Calciu/4828a11ee5221ad6f7d97ae0c8ffec8c62c65fa8",
+		"https://www.semanticscholar.org/paper/LazyPIM%3A-An-Efficient-Cache-Coherence-Mechanism-for-Boroumand-Ghose/c3fac3d0c6f1ec1bb150856d8e7ade971e0fc306",
+		"https://www.semanticscholar.org/paper/LazyPIM%3A-Efficient-Support-for-Cache-Coherence-in-Boroumand-Ghose/c9e6e11de725263745bfd134ae89ec459fb44ebc",
+		"https://www.semanticscholar.org/paper/Accelerating-pointer-chasing-in-3D-stacked-memory%3A-Hsieh-Khan/5e41307a2f2850f164ad0175f372799ce61e0bf9",
+		"https://www.semanticscholar.org/paper/Simultaneous-Multi-Layer-Access%3A-Improving-Memory-Lee-Ghose/93ef36f4b16b55efb403b3da1c9c5e8dc34415b4",
+		"https://www.semanticscholar.org/paper/Gather-Scatter-DRAM%3A-In-DRAM-address-translation-to-Seshadri-Mullins/f2bb3a65774bccb10d3c981df8605b329044cdf5"
+	]
+}
