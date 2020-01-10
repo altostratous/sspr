@@ -1,6 +1,17 @@
-Sample output of page rank algorithm and its highest ranked papers:
+# SSPR
+Crawler and Page Rank on [www.semanticscholar.org](http://www.semanticscholar.org)
+
+## Setup
+```bash
+pip install -r requirements.txt
 ```
-Enter alpha: 0.85
+
+## Usage
+Sample usage of page rank algorithm and its highest ranked papers:
+```bash
+~$ python main.py
+Enter alpha: 
+~$ 0.85
 (0.002116296638096687, 'https://www.semanticscholar.org/paper/Normalized-Cuts-and-Image-Segmentation-Shi-Malik/d5d02b093162096005834ee22def530de6c1f7eb')
 (0.001619934007658015, 'https://www.semanticscholar.org/paper/Distinctive-Image-Features-from-Scale-Invariant-Dorst/bcae70dce393c1796d4f15c7b8bbf0ed6f468be1')
 (0.0015853375246016586, 'https://www.semanticscholar.org/paper/MapReduce%3A-simplified-data-processing-on-large-Dean-Ghemawat/b6c771e3c407e183f49ebbccfbfcdb88be6a5231')
@@ -11,4 +22,9 @@ Enter alpha: 0.85
 (0.001337631832869845, 'https://www.semanticscholar.org/paper/A-training-algorithm-for-optimal-margin-classifiers-Boser-Guyon/2599131a4bc2fa957338732a37c744cfe3e17b24')
 (0.0013062848361726906, 'https://www.semanticscholar.org/paper/WRL-Research-Report-93%2F5%3A-An-Enhanced-Access-and-Wilton-Jouppi/822e74d90c010f7301b23500971034af6f0fbfee')
 (0.0012834432401836427, 'https://www.semanticscholar.org/paper/Conditional-Random-Fields%3A-Probabilistic-Models-for-Lafferty-McCallum/f4ba954b0412773d047dc41231c733de0c1f4926')
+```
+
+## Run Crawler Test
+```bash
+python -m unittest tests
 ```

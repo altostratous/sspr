@@ -29,7 +29,7 @@ if __name__ == '__main__':
         for reference_id in reference_ids:
             graph.add_edge(page_ids[page['id']], reference_id)
 
-    pr = pagerank(graph, alpha=float(input("Enter alpha: ")))
+    pr = pagerank(graph, alpha=float(input("Enter alpha:\n")))
 
     top_documents = sorted([(rank, id_pages[node]) for node, rank in pr.items()], reverse=True)[:10]
 
