@@ -9,7 +9,6 @@ from caching import dict_pickle_cached
 
 @dict_pickle_cached()
 def fetch_url(url: str):
-    print(url)
     response = requests.get(url)
     assert response.ok
     sleep(0.1)
@@ -19,13 +18,14 @@ def fetch_url(url: str):
 def fetch_document(document_id: str):
     bs = BeautifulSoup(fetch_url(document_id))
     references_element = bs.find(name='div', attrs={'id': 'references'})
+    date_element = bs.find(name='meta', attrs={'name': 'citation_publication_date'})
     data = {
         'id': document_id,
         'title': bs.find(name='meta', attrs={'name': 'citation_title'}).get('content'),
         'abstract': bs.find(
             name='meta', attrs={'name': 'description'}
         ).get('content')[len('Abstract '):].replace('\xa0', ' '),
-        'date': bs.find(name='meta', attrs={'name': 'citation_publication_date'}).get('content'),
+        'date': date_element.get('content') if date_element else None,
         'authors': list(
             map(
                 lambda e: e.get('content'),
@@ -43,17 +43,18 @@ def fetch_document(document_id: str):
     }
     return data
 
-
-def crawl(queue: list, crawled_set: set=set(), limit=5000):
-    if len(queue) == 0:
-        return []
-    first, rest = queue[0], queue[1:]
-    fetched_document = fetch_document(first)
-    crawled_set.add(fetched_document['id'])
-    print('crawled:', len(crawled_set))
-    references_to_crawl = fetched_document['references'][:5]
-    fresh_references_to_crawl = set(references_to_crawl) - crawled_set
-    rest.extend(fresh_references_to_crawl)
-    result = crawl(rest, crawled_set, limit)
-    result.insert(0, fetched_document)
+@dict_pickle_cached()
+def crawl(queue: list, limit=5000):
+    crawled_set = set()
+    result = []
+    while len(crawled_set) < limit:
+        first, rest = queue[0], queue[1:]
+        fetched_document = fetch_document(first)
+        crawled_set.add(fetched_document['id'])
+        result.append(fetched_document)
+        print('crawled:', len(crawled_set))
+        references_to_crawl = fetched_document['references'][:5]
+        fresh_references_to_crawl = set(references_to_crawl) - (crawled_set | set(queue))
+        rest.extend(fresh_references_to_crawl)
+        queue = rest
     return result
