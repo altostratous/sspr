@@ -17,7 +17,7 @@ kombu==4.6.7
 libwapiti==0.2.1
 more-itertools==8.0.2
 networkx==2.4
-nltk==3.3
+nltk==3.4.5
 numpy==1.17.4
 pytz==2019.3
 requests==2.22.0
